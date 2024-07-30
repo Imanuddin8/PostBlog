@@ -1,30 +1,30 @@
 @extends('auth.main')
 
-@section('title', 'Registration')
+@section('title', 'Login')
 
 @section('konten')
-<div style="height:100vh; display:flex; justify-content:center; align-items:center; margin: 3rem 0rem 3rem 0rem;">
+<div style="min-height: 100vh; display:flex; justify-content:center; align-items:center">
     <form action="{{route('auth.signup')}}" method="POST">
         @csrf
         <div>
             <div
                 class="row justify-content-center align-items-center"
             >
-                <div class="col-11 col-lg-9 bg-white rounded p-5">
+                <div class="col-11 col-lg-9 rounded p-5" style="background: #F8F9FA">
                     <div
                         class="row justify-content-between align-items-center g-2"
                     >
-                        <div class="col-12 col-lg-9">
+                        <div class="col-12 col-lg-6">
                             <h1>Post Blog</h1>
                             <p class="fs-4">Share your story to the world</p>
                         </div>
-                        <div class="col-12 col-lg-9">
+                        <div class="col-12 col-lg-6">
                             <div
                                 class="row justify-content-center align-items-center g-3"
                             >
                                 <div class="col-12 col-lg-9 text-center">
                                     <div class="d-flex align-items-center">
-                                        <span class="me-auto fw-bold fs-2">Signup</span>
+                                        <span class="me-auto fw-bold fs-2">Login</span>
                                         <a href="{{url('/')}}">
                                             <i class="fa-solid fa-xmark fs-4 text-danger"></i>
                                         </a>
@@ -81,3 +81,4 @@
     </form>
 </div>
 @endsection
+
