@@ -4,7 +4,7 @@
 
 @section('konten')
 <div style="height:100vh; display:flex; justify-content:center; align-items:center">
-    <form action="{{route('auth.login')}}" method="POST">
+    <form method="POST" action="{{ route('auth.login') }}">
         @csrf
         <div>
             <div

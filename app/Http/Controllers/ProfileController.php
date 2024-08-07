@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Komen;
 use Carbon\Carbon;
 
 class ProfileController extends Controller

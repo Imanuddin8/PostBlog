@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KomenController;
 
 // Login
 Route::GET('/auth', [AuthController::class, 'index'])->name('auth.index');
@@ -21,6 +22,13 @@ Route::middleware('auth')->group(function () {
     Route::GET('/index', [PostController::class, 'index'])->name('post.index');
     Route::POST('/store', [PostController::class, 'store'])->name('post.store');
     Route::DELETE('/store/delete/{id}', [PostController::class, 'delete'])->name('post.delete');
+
+    // Komen
+    Route::GET('/komen/{id}', [KomenController::class, 'index'])->name('komen.index');
+    Route::POST('/komen/create/{id}', [KomenController::class, 'create'])->name('komen.create');
+    Route::GET('/komen/edit/{id}', [KomenController::class, 'edit'])->name('komen.edit');
+    Route::PUT('/komen/update/{id}', [KomenController::class, 'update'])->name('komen.update');
+    Route::DELETE('/komen/delete/{id}', [KomenController::class, 'delete'])->name('komen.delete');
 
     // Profile
     Route::GET('/profile{id}', [ProfileController::class, 'index'])->name('profile.index');

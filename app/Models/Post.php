@@ -18,4 +18,9 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function komen()
+    {
+        return $this->hasMany(User::class);
+    }
 }

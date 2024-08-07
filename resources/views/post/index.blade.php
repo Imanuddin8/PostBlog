@@ -85,8 +85,17 @@
                 <div class="mb-3">
                     <span class="text-break">{{$row->caption}}</span>
                 </div>
-                <div class="text-secondary">
-                    <span>{{formatDate($row->tanggal)}}</span>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="text-secondary">
+                        <span>{{formatDate($row->tanggal)}}</span>
+                    </div>
+                    @auth
+                        <div>
+                            <a class="" href="{{route('komen.index', $row->id)}}" title="comment">
+                                <i class="fa-solid fa-comment text-black fs-3"></i>
+                            </a>
+                        </div>
+                    @endauth
                 </div>
             </div>
         @endforeach

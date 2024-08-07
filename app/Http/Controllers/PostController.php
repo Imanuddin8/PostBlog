@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Komen;
 use Carbon\Carbon;
 
 class PostController extends Controller
@@ -13,7 +14,6 @@ class PostController extends Controller
     public function index() {
         $post = Post::orderBy('created_at', 'desc')->get();
         $user = User::all();
-
         return view('post.index', compact('post', 'user'));
     }
 

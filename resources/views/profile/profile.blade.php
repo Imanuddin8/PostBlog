@@ -77,14 +77,21 @@
                             <div class="mb-3">
                                 <span class="text-break">{{$row->caption}}</span>
                             </div>
-                            <div class="">
-                                <span style="color: #E6E6E6;">{{formatDate($row->tanggal)}}</span>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span style="color: #E6E6E6;">{{formatDate($row->tanggal)}}</span>
+                                </div>
+                                <div>
+                                    <a href="{{route('komen.index', $row->id)}}" title="comment">
+                                        <i class="fa-solid fa-comment text-white fs-3"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     @empty
-                    <div class="col-12 text-center">
-                        <span class="fw-bold fs-3 text-secondary">No Post</span>
-                    </div>
+                        <div class="col-12 text-center">
+                            <span class="fw-bold fs-3 text-secondary">No Post</span>
+                        </div>
                     @endforelse
                 </div>
             </div>
