@@ -16,6 +16,7 @@
                                 <div>{{$message}}</div>
                             @enderror
                         </div>
+
                         <div>
                             <textarea title="your caption" name="caption" id="caption" class="form-control mb-3" placeholder="Type your caption">{{old('caption')}}</textarea>
                         </div>
@@ -85,15 +86,18 @@
                 <div class="mb-3">
                     <span class="text-break">{{$row->caption}}</span>
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-start align-items-center">
                     <div class="text-secondary">
                         <span>{{formatDate($row->tanggal)}}</span>
                     </div>
                     @auth
-                        <div>
+                        <div class="ms-auto">
                             <a class="" href="{{route('komen.index', $row->id)}}" title="comment">
                                 <i class="fa-solid fa-comment text-black fs-3"></i>
                             </a>
+                        </div>
+                        <div class="ms-1">
+                            <span>{{$jumlahKomen[$row->id] ?? '0'}}</span>
                         </div>
                     @endauth
                 </div>
@@ -101,5 +105,13 @@
         @endforeach
     </div>
 
+    <script>
+        $(document).ready(function() {
+            $('#your_id').select2({
+                placeholder: 'Pilih Nama',
+                allowClear: true
+            });
+        });
+    </script>
 </div>
 @endsection

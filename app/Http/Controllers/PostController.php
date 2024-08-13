@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Komen;
@@ -14,7 +15,8 @@ class PostController extends Controller
     public function index() {
         $post = Post::orderBy('created_at', 'desc')->get();
         $user = User::all();
-        return view('post.index', compact('post', 'user'));
+        $jumlahKomen = Komen::select('post_id', DB::raw('count(*) as count'))->groupBy('post_id')->pluck('count', 'post_id');
+        return view('post.index', compact('post', 'user', 'jumlahKomen'));
     }
 
     public function store(Request $request) {

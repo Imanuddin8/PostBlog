@@ -71,19 +71,19 @@
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li>
-                                <a href="" class="dropdown-item">
+                                <a href="#" class="dropdown-item">
                                     <i class="fa-solid fa-exclamation me-2 p-1"></i>
                                     <span>Report</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('komen.edit', $row->id)}}" class="dropdown-item">
+                                <a href="{{ route('komen.edit', $row->id) }}" class="dropdown-item">
                                     <i class="fa-solid fa-pen-to-square me-2"></i>
                                     <span>Edit</span>
                                 </a>
                             </li>
                             <li>
-                                <form action="{{route('komen.delete', $row->id)}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">
+                                <form action="{{ route('komen.delete', $row->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="dropdown-item">

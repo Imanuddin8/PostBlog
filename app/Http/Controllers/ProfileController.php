@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Post;
 use App\Models\User;
@@ -19,7 +20,9 @@ class ProfileController extends Controller
         $post = Post::where('user_id', $user->id)
         ->orderBy('created_at', 'desc')
         ->get();
-        return view('profile.profile', compact('post', 'user'));
+
+        $jumlahKomen = Komen::select('post_id', DB::raw('count(*) as count'))->groupBy('post_id')->pluck('count', 'post_id');
+        return view('profile.profile', compact('post', 'user', 'jumlahKomen'));
     }
 
     public function indexSinggah($id){
@@ -29,7 +32,9 @@ class ProfileController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
-        return view('profile.singgah', compact('post', 'user'));
+        $jumlahKomen = Komen::select('post_id', DB::raw('count(*) as count'))->groupBy('post_id')->pluck('count', 'post_id');
+
+        return view('profile.singgah', compact('post', 'user', 'jumlahKomen'));
     }
 
     public function edit($id) {
